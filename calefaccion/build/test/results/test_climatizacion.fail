@@ -1,0 +1,17 @@
+---
+:source:
+  :path: test
+  :file: test_climatizacion.c
+:successes: []
+:failures:
+- :test: test_ClimatizacionOff
+  :line: 14
+  :message: Primer compilacion
+:ignores: []
+:counts:
+  :total: 1
+  :passed: 0
+  :failed: 1
+  :ignored: 0
+:stdout: []
+:time: 0.002008295999985421
