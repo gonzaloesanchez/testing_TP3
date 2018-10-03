@@ -1,4 +1,5 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-int Climatizacion_OnOff (bool X);
+void Climatizacion_Create (bool *X);
+void Climatizacion_OnOff (bool X);

@@ -1,5 +1,9 @@
 #include "climatizacion.h"
 
-int Climatizacion_OnOff (bool X)  {
+void Climatizacion_create (bool *X)  {
+
+}
+
+void Climatizacion_OnOff (bool X)  {
 
 }

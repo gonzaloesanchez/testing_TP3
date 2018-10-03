@@ -11,5 +11,10 @@ void tearDown (void)  {
 }
 
 void test_ClimatizacionOff(void)  {
-   TEST_FAIL_MESSAGE("Primer compilacion");
+   //creamos un control virtual de encendido_apagado
+   bool on_off_virtual = false;
+
+   Climatizacion_create(&on_off_virtual);
+   Climatizacion_OnOff(true);
+   TEST_ASSERT_EQUAL(true,on_off_virtual);
 }
