@@ -4,17 +4,20 @@
   :file: test_climatizacion.c
 :successes:
 - :test: test_ClimatizacionOff
-  :line: 13
+  :line: 16
   :message: ''
 - :test: test_ClimatizacionOn
-  :line: 22
+  :line: 26
+  :message: ''
+- :test: test_ClimatizacionSetTemp
+  :line: 41
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 2
-  :passed: 2
+  :total: 3
+  :passed: 3
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0008010440014913911
+:time: 0.0006651849998888792

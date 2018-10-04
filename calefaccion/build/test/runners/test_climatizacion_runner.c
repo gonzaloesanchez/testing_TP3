@@ -37,6 +37,7 @@ extern void setUp(void);
 extern void tearDown(void);
 extern void test_ClimatizacionOff(void);
 extern void test_ClimatizacionOn(void);
+extern void test_ClimatizacionSetTemp(void);
 
 
 /*=======Suite Setup=====*/
@@ -71,8 +72,9 @@ int main(void)
 {
   suite_setup();
   UnityBegin("test_climatizacion.c");
-  RUN_TEST(test_ClimatizacionOff, 13);
-  RUN_TEST(test_ClimatizacionOn, 22);
+  RUN_TEST(test_ClimatizacionOff, 16);
+  RUN_TEST(test_ClimatizacionOn, 26);
+  RUN_TEST(test_ClimatizacionSetTemp, 41);
 
   return suite_teardown(UnityEnd());
 }

@@ -21,6 +21,12 @@ void tearDown (void) {
 
 
 
+
+
+
+
+
+
 void test_ClimatizacionOff(void) {
 
 
@@ -35,9 +41,11 @@ void test_ClimatizacionOff(void) {
 
                              ;
 
+   uint8_t selector_temp_virtual = 24;
 
 
-   Climatizacion_create(&on_off_virtual);
+
+   Climatizacion_create(&on_off_virtual, &selector_temp_virtual);
 
    Climatizacion_OnOff(
 
@@ -53,7 +61,7 @@ void test_ClimatizacionOff(void) {
 
   ((void *)0)
 
-  ), (UNITY_UINT)(19), UNITY_DISPLAY_STYLE_INT);
+  ), (UNITY_UINT)(23), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -73,9 +81,11 @@ void test_ClimatizacionOn(void) {
 
                              ;
 
+   uint8_t selector_temp_virtual = 24;
 
 
-   Climatizacion_create(&on_off_virtual);
+
+   Climatizacion_create(&on_off_virtual, &selector_temp_virtual);
 
    Climatizacion_OnOff(
 
@@ -91,6 +101,50 @@ void test_ClimatizacionOn(void) {
 
   ((void *)0)
 
-  ), (UNITY_UINT)(28), UNITY_DISPLAY_STYLE_INT);
+  ), (UNITY_UINT)(33), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+void test_ClimatizacionSetTemp(void) {
+
+
+
+    
+
+   _Bool 
+
+        on_off_virtual = 
+
+                         0
+
+                              ;
+
+    uint8_t selector_temp_virtual = 24;
+
+
+
+    Climatizacion_create(&on_off_virtual, &selector_temp_virtual);
+
+    Climatizacion_SetTemp(26);
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT8 )((26)), (UNITY_INT)(UNITY_UINT8 )((selector_temp_virtual)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(48), UNITY_DISPLAY_STYLE_UINT8);
+
+
 
 }
