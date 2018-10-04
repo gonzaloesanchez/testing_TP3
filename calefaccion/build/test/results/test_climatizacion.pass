@@ -15,12 +15,15 @@
 - :test: test_Calefaccion_caso1
   :line: 57
   :message: ''
+- :test: test_Calefaccion_caso3
+  :line: 83
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 4
-  :passed: 4
+  :total: 5
+  :passed: 5
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0009650370011513587
+:time: 0.0007094309985404834

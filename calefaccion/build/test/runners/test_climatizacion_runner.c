@@ -45,6 +45,7 @@ extern void test_ClimatizacionOff(void);
 extern void test_ClimatizacionOn(void);
 extern void test_ClimatizacionSetTemp(void);
 extern void test_Calefaccion_caso1(void);
+extern void test_Calefaccion_caso3(void);
 
 
 /*=======Mock Management=====*/
@@ -103,6 +104,7 @@ int main(void)
   RUN_TEST(test_ClimatizacionOn, 26);
   RUN_TEST(test_ClimatizacionSetTemp, 41);
   RUN_TEST(test_Calefaccion_caso1, 57);
+  RUN_TEST(test_Calefaccion_caso3, 83);
 
   CMock_Guts_MemFreeFinal();
   return suite_teardown(UnityEnd());

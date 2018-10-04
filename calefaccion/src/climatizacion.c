@@ -37,7 +37,7 @@ uint8_t Climatizacion_readTemp(void)  {
 bool Climatizacion_Calefaccion(uint8_t tempAmbiente)  {
   bool Ret;
   if (*(g_sControl_climatizacion.IO_ctrl))  {
-    if (tempAmbiente < (*(g_sControl_climatizacion.IO_ctrl) - 2 ))  {
+    if (tempAmbiente < (*(g_sControl_climatizacion.temp_setting) - 2 ))  {
       Climatizacion_setEstadoCalefactor(true);
     }
     else  {

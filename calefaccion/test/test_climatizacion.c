@@ -52,7 +52,7 @@ void test_ClimatizacionSetTemp(void)  {
 
 
 /*****************************************************************************
-    TEST Correspondientes a requerimiento AUTO-ER-0001-REQ0020
+    TEST Correspondientes a casos de prueba dados en TP2
 *******************************************************************************/
 void test_Calefaccion_caso1(void)  {
   bool on_off_virtual = false;
@@ -78,5 +78,31 @@ void test_Calefaccion_caso1(void)  {
 
   EstadoCalefaccion = Climatizacion_Calefaccion(temperatura_ambiente);
   TEST_ASSERT_EQUAL(false,EstadoCalefaccion);
+}
+
+void test_Calefaccion_caso3(void)  {
+  bool on_off_virtual;
+  uint8_t selector_temp_virtual;
+  uint8_t temperatura_ambiente;
+  bool EstadoCalefaccion;
+
+/**Caso de prueba 3: Control encendido: Si
+    Temperatura ambiente 10 ºC
+    Temperatura de control 24 ºC
+    --> La calefacción debe encenderse
+*/
+
+  Climatizacion_create(&on_off_virtual, &selector_temp_virtual);
+  Climatizacion_SetTemp(24);
+  Climatizacion_OnOff(true);
+
+  getADC_value_ExpectAndReturn(10);
+  temperatura_ambiente = Climatizacion_readTemp();
+
+  //comprobacion de que el mock esta funcionando
+  TEST_ASSERT_EQUAL_UINT8(10,temperatura_ambiente);
+
+  EstadoCalefaccion = Climatizacion_Calefaccion(temperatura_ambiente);
+  TEST_ASSERT_EQUAL(true,EstadoCalefaccion);
 }
 //-----------------------------------------------------------------------------
