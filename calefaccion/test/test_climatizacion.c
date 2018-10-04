@@ -49,3 +49,28 @@ void test_ClimatizacionSetTemp(void)  {
 }
 
 //-----------------------------------------------------------------------------
+
+
+/*****************************************************************************
+    TEST Correspondientes a requerimiento AUTO-ER-0001-REQ0020
+*******************************************************************************/
+void test_Calefaccion_caso1(void)  {
+  bool on_off_virtual = false;
+  uint8_t selector_temp_virtual = 24;
+  uint8_t temperatura_ambiente;
+  bool EstadoCalefaccion;
+
+/**Caso de prueba 1: Control encendido: No
+    Temperatura ambiente 20 ºC
+    Temperatura de control 22 ºC
+    --> La calefacción no debe encenderse
+*/
+
+  Climatizacion_create(&on_off_virtual, &selector_temp_virtual);
+  Climatizacion_SetTemp(22);
+  Climatizacion_OnOff(false);
+  temperatura_ambiente = Climatizacion_readTemp();
+  EstadoCalefaccion = Climatizacion_Calefaccion(temperatura_ambiente);
+  TEST_ASSERT_EQUAL(false,EstadoCalefaccion);
+}
+//-----------------------------------------------------------------------------
