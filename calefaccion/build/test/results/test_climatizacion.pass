@@ -1,0 +1,41 @@
+---
+:source:
+  :path: test
+  :file: test_climatizacion.c
+:successes:
+- :test: test_ClimatizacionOff
+  :line: 16
+  :message: ''
+- :test: test_ClimatizacionOn
+  :line: 26
+  :message: ''
+- :test: test_ClimatizacionSetTemp
+  :line: 41
+  :message: ''
+- :test: test_Calefaccion_caso1
+  :line: 57
+  :message: ''
+- :test: test_Calefaccion_caso3
+  :line: 83
+  :message: ''
+- :test: test_Calefaccion_caso4
+  :line: 109
+  :message: ''
+- :test: test_AC_caso2
+  :line: 135
+  :message: ''
+- :test: test_AC_caso4
+  :line: 162
+  :message: ''
+- :test: test_AC_caso5
+  :line: 189
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 9
+  :passed: 9
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.0009020210018206853
