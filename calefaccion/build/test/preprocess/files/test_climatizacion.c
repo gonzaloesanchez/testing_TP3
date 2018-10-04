@@ -313,3 +313,79 @@ void test_Calefaccion_caso3(void) {
  ), (UNITY_UINT)(106), UNITY_DISPLAY_STYLE_INT);
 
 }
+
+
+
+void test_Calefaccion_caso4(void) {
+
+  
+
+ _Bool 
+
+      on_off_virtual;
+
+  uint8_t selector_temp_virtual;
+
+  uint8_t temperatura_ambiente;
+
+  
+
+ _Bool 
+
+      EstadoCalefaccion;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Climatizacion_create(&on_off_virtual, &selector_temp_virtual);
+
+  Climatizacion_SetTemp(16);
+
+  Climatizacion_OnOff(
+
+                     1
+
+                         );
+
+
+
+  getADC_value_CMockExpectAndReturn(125, 16);
+
+  temperatura_ambiente = Climatizacion_readTemp();
+
+
+
+
+
+  UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT8 )((16)), (UNITY_INT)(UNITY_UINT8 )((temperatura_ambiente)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(129), UNITY_DISPLAY_STYLE_UINT8);
+
+
+
+  EstadoCalefaccion = Climatizacion_Calefaccion(temperatura_ambiente);
+
+  UnityAssertEqualNumber((UNITY_INT)((
+
+ 0
+
+ )), (UNITY_INT)((EstadoCalefaccion)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(132), UNITY_DISPLAY_STYLE_INT);
+
+}

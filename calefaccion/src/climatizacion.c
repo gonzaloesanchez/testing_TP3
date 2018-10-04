@@ -3,6 +3,7 @@
 
 static struct _climatizacionCtrl g_sControl_climatizacion;
 static bool g_bCalefactor = false;
+static bool g_bAireAcondicionado = false;
 
 void Climatizacion_create (bool *IO, uint8_t *setTemp)  {
   g_sControl_climatizacion.IO_ctrl = IO;
@@ -26,6 +27,14 @@ bool Climatizacion_getEstadoCalefactor (void)  {
   return g_bCalefactor;
 }
 
+void Climatizacion_setEstadoAC (bool X)  {
+  g_bAireAcondicionado = X;
+}
+
+bool Climatizacion_getEstadoAC (void)  {
+  return g_bAireAcondicionado;
+}
+
 uint8_t Climatizacion_readTemp(void)  {
   uint8_t rawValue;
 
@@ -45,6 +54,23 @@ bool Climatizacion_Calefaccion(uint8_t tempAmbiente)  {
     }
   }
   Ret = Climatizacion_getEstadoCalefactor();
+
+  return Ret;
+}
+
+
+bool Climatizacion_AC(uint8_t tempAmbiente)  {
+  bool Ret;
+
+  if (*(g_sControl_climatizacion.IO_ctrl))  {
+    if (tempAmbiente > (*(g_sControl_climatizacion.temp_setting) - 2 ))  {
+      Climatizacion_setEstadoAC(true);
+    }
+    else  {
+      Climatizacion_setEstadoAC(false);
+    }
+  }
+  Ret = Climatizacion_getEstadoAC();
 
   return Ret;
 }

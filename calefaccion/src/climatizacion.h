@@ -13,3 +13,7 @@ uint8_t Climatizacion_readTemp(void);
 bool Climatizacion_Calefaccion(uint8_t tempAmbiente);
 void Climatizacion_setEstadoCalefactor (bool X);
 bool Climatizacion_getEstadoCalefactor (void);
+
+bool Climatizacion_AC(uint8_t tempAmbiente);
+void Climatizacion_setEstadoAC (bool X);
+bool Climatizacion_getEstadoAC (void);
