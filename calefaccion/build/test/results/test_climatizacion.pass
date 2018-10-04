@@ -12,12 +12,21 @@
 - :test: test_ClimatizacionSetTemp
   :line: 41
   :message: ''
+- :test: test_Calefaccion_caso1
+  :line: 57
+  :message: ''
+- :test: test_Calefaccion_caso3
+  :line: 83
+  :message: ''
+- :test: test_Calefaccion_caso4
+  :line: 109
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 3
-  :passed: 3
+  :total: 6
+  :passed: 6
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0006651849998888792
+:time: 0.0008450730019831099
