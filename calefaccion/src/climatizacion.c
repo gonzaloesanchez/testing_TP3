@@ -63,10 +63,10 @@ bool Climatizacion_AC(uint8_t tempAmbiente)  {
   bool Ret;
 
   if (*(g_sControl_climatizacion.IO_ctrl))  {
-    if (tempAmbiente > (*(g_sControl_climatizacion.temp_setting) - 2 ))  {
+    if (tempAmbiente > (*(g_sControl_climatizacion.temp_setting) + 2 ))  {
       Climatizacion_setEstadoAC(true);
     }
-    else  {
+    if (tempAmbiente == *(g_sControl_climatizacion.temp_setting))  {
       Climatizacion_setEstadoAC(false);
     }
   }

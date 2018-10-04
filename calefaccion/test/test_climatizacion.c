@@ -112,7 +112,7 @@ void test_Calefaccion_caso4(void)  {
   uint8_t temperatura_ambiente;
   bool EstadoCalefaccion;
 
-/**Caso de prueba 1: Control encendido: si
+/**Caso de prueba 4: Control encendido: si
     Temperatura ambiente 16 ºC
     Temperatura de control 16 ºC
     --> La calefacción o el aire acondicionado deben apagarse
@@ -156,6 +156,60 @@ void test_AC_caso2(void)  {
 
   EstadoAC = Climatizacion_AC(temperatura_ambiente);
   TEST_ASSERT_EQUAL(false,EstadoAC);
+}
+
+
+void test_AC_caso4(void)  {
+  bool on_off_virtual;
+  uint8_t selector_temp_virtual;
+  uint8_t temperatura_ambiente;
+  bool EstadoAC;
+
+/**Caso de prueba 1: Control encendido: si
+    Temperatura ambiente 16 ºC
+    Temperatura de control 16 ºC
+    --> La calefacción o el aire acondicionado deben apagarse
+*/
+
+  Climatizacion_create(&on_off_virtual, &selector_temp_virtual);
+  Climatizacion_SetTemp(16);
+  Climatizacion_OnOff(true);
+
+  getADC_value_ExpectAndReturn(16);
+  temperatura_ambiente = Climatizacion_readTemp();
+
+  //comprobacion de que el mock esta funcionando
+  TEST_ASSERT_EQUAL_UINT8(16,temperatura_ambiente);
+
+  EstadoAC = Climatizacion_AC(temperatura_ambiente);
+  TEST_ASSERT_EQUAL(false,EstadoAC);
+}
+
+
+void test_AC_caso5(void)  {
+  bool on_off_virtual;
+  uint8_t selector_temp_virtual;
+  uint8_t temperatura_ambiente;
+  bool EstadoAC;
+
+/**Caso de prueba 5: Control encendido: si
+    Temperatura ambiente 32 ºC
+    Temperatura de control 24 ºC
+    --> El aire acondicionado debe encenderse
+*/
+
+  Climatizacion_create(&on_off_virtual, &selector_temp_virtual);
+  Climatizacion_SetTemp(24);
+  Climatizacion_OnOff(true);
+
+  getADC_value_ExpectAndReturn(32);
+  temperatura_ambiente = Climatizacion_readTemp();
+
+  //comprobacion de que el mock esta funcionando
+  TEST_ASSERT_EQUAL_UINT8(32,temperatura_ambiente);
+
+  EstadoAC = Climatizacion_AC(temperatura_ambiente);
+  TEST_ASSERT_EQUAL(true,EstadoAC);
 }
 
 //-----------------------------------------------------------------------------

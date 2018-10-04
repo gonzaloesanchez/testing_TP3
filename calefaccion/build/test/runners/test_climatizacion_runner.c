@@ -48,6 +48,8 @@ extern void test_Calefaccion_caso1(void);
 extern void test_Calefaccion_caso3(void);
 extern void test_Calefaccion_caso4(void);
 extern void test_AC_caso2(void);
+extern void test_AC_caso4(void);
+extern void test_AC_caso5(void);
 
 
 /*=======Mock Management=====*/
@@ -109,6 +111,8 @@ int main(void)
   RUN_TEST(test_Calefaccion_caso3, 83);
   RUN_TEST(test_Calefaccion_caso4, 109);
   RUN_TEST(test_AC_caso2, 135);
+  RUN_TEST(test_AC_caso4, 162);
+  RUN_TEST(test_AC_caso5, 189);
 
   CMock_Guts_MemFreeFinal();
   return suite_teardown(UnityEnd());
