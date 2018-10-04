@@ -12,15 +12,15 @@
 - :test: test_ClimatizacionSetTemp
   :line: 41
   :message: ''
-:failures:
 - :test: test_Calefaccion_caso1
-  :line: 74
-  :message: Expected 0 Was 100
+  :line: 57
+  :message: ''
+:failures: []
 :ignores: []
 :counts:
   :total: 4
-  :passed: 3
-  :failed: 1
+  :passed: 4
+  :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0007878899996285327
+:time: 0.0009650370011513587

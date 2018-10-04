@@ -1,4 +1,5 @@
 ---
 - unity.h
 - climatizacion.h
+- mock_hardware.h
 - build/temp/_test_climatizacion.c

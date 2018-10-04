@@ -1,8 +1,7 @@
 #include "build/temp/_test_climatizacion.c"
+#include "mock_hardware.h"
 #include "climatizacion.h"
 #include "unity.h"
-
-
 
 
 void setUp (void) {
@@ -207,7 +206,23 @@ void test_Calefaccion_caso1(void) {
 
                           );
 
+
+
+  getADC_value_CMockExpectAndReturn(73, 20);
+
   temperatura_ambiente = Climatizacion_readTemp();
+
+
+
+
+
+  UnityAssertEqualNumber((UNITY_INT)(UNITY_UINT8 )((20)), (UNITY_INT)(UNITY_UINT8 )((temperatura_ambiente)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(77), UNITY_DISPLAY_STYLE_UINT8);
+
+
 
   EstadoCalefaccion = Climatizacion_Calefaccion(temperatura_ambiente);
 
@@ -219,6 +234,6 @@ void test_Calefaccion_caso1(void) {
 
  ((void *)0)
 
- ), (UNITY_UINT)(74), UNITY_DISPLAY_STYLE_INT);
+ ), (UNITY_UINT)(80), UNITY_DISPLAY_STYLE_INT);
 
 }

@@ -1,6 +1,6 @@
 #include "unity.h"
 #include "climatizacion.h"
-
+#include "mock_hardware.h"
 
 void setUp (void)  {
 
@@ -69,7 +69,13 @@ void test_Calefaccion_caso1(void)  {
   Climatizacion_create(&on_off_virtual, &selector_temp_virtual);
   Climatizacion_SetTemp(22);
   Climatizacion_OnOff(false);
+
+  getADC_value_ExpectAndReturn(20);
   temperatura_ambiente = Climatizacion_readTemp();
+
+  //comprobacion de que el mock esta funcionando
+  TEST_ASSERT_EQUAL_UINT8(20,temperatura_ambiente);
+
   EstadoCalefaccion = Climatizacion_Calefaccion(temperatura_ambiente);
   TEST_ASSERT_EQUAL(false,EstadoCalefaccion);
 }
